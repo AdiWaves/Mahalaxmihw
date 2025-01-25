@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .color-palette {
+      max-width: 900px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .color-palette h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .colors {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .color-card {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .color-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .color-card .info {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 5px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .color-card .name {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .color-card .code {
+      font-size: 12px;
+      margin: 0;
+      color: #555;
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #ff6b6b;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .favorite-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .favorite-btn.active {
+      color: #ff0000;
+    }
+  </style>
+</head>
+<body>
+  <section class="color-palette">
+    <h1>Recently Viewed Colours</h1>
+    <div class="colors">
+      <div class="color-card" style="background-color: #C6E6E9;">
+        <div class="info">
+          <p class="name">Caribbean Sky</p>
+          <p class="code">7419</p>
+        </div>
+        <button class="favorite-btn">♡</button>
+      </div>
+      <div class="color-card" style="background-color: #D6E6E9;">
+        <div class="info">
+          <p class="name">Solitude</p>
+          <p class="code">9228</p>
+        </div>
+        <button class="favorite-btn">♡</button>
+      </div>
+      <div class="color-card" style="background-color: #B9DDE2;">
+        <div class="info">
+          <p class="name">High Spirits</p>
+          <p class="code">7363</p>
+        </div>
+        <button class="favorite-btn">♡</button>
+      </div>
+      <div class="color-card" style="background-color: #B9E3E6;">
+        <div class="info">
+          <p class="name">Bird Bath</p>
+          <p class="code">7347</p>
+        </div>
+        <button class="favorite-btn">♡</button>
+      </div>
+      <div class="color-card" style="background-color: #D1E0E5;">
+        <div class="info">
+          <p class="name">Fairytale</p>
+          <p class="code">7251</p>
+        </div>
+        <button class="favorite-btn">♡</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const favoriteButtons = document.querySelectorAll(".favorite-btn");
+
+      favoriteButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          button.classList.toggle("active");
+        });
+      });
+    });
+  </script>
+</body>
+</html>

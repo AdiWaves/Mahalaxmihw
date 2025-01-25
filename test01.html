@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .top-bar {
+            height: 33px;
+            background-color: #003366;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+            padding: 10px 20px;
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            width: 123px;
+            height: 43px;
+        }
+
+        .navbar .search {
+            flex-grow: 1;
+            max-width: 400px;
+            margin: 0 20px;
+        }
+
+        .navbar .search input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+
+        .navbar .nav-links a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #007BFF;
+        }
+
+        .navbar .auth {
+            background-color: #000;
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .navbar .auth:hover {
+            background-color: #444;
+        }
+
+        .navbar .menu-toggle {
+            display: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+            }
+
+            .navbar .search {
+                order: 2;
+                flex-basis: 100%;
+                margin: 10px 0;
+            }
+
+            .navbar .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #f2f2f2;
+                padding: 10px 0;
+            }
+
+            .navbar .nav-links a {
+                padding: 10px 20px;
+                color: #000;
+            }
+
+            .navbar .menu-toggle {
+                display: block;
+                cursor: pointer;
+                color: #000;
+                font-size: 1.5rem;
+                margin-left: auto;
+            }
+
+            .navbar .nav-links.show {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .auth {
+                padding: 6px 10px;
+                font-size: 0.9rem;
+            }
+
+            .navbar .search input {
+                padding: 6px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar"></div>
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="Shop logo new.png" alt="Logo">
+        </a>
+        <div class="search">
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="menu-toggle">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Expertise</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <a href="#" class="auth">Login / Signup</a>
+    </nav>
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

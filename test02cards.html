@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design with Hover Effect</title>
+    <style>
+        .card-body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            overflow: hidden;
+        }
+
+        .slideshow-container {
+            width: 100%;
+            max-width: 1280px;
+            overflow: hidden; /* Crop from the sides */
+            position: relative;
+            padding: 20px; /* Add padding around the frame */
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            transform: translateX(0);
+            transition: transform 0.5s ease;
+            width: calc(300px * 9 + 20px * 8); /* Width for 9 cards with gaps */
+        }
+
+        .card {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .card:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.0) translateY(-20px); /* Pop-out effect */
+    z-index: 10; /* Ensure it appears above others */
+    border-radius: 20px; /* Add rounded corners */
+}
+
+
+        .card h2 {
+            margin: 0 0 15px;
+            font-size: 20px;
+            transition: font-size 0.3s ease;
+        }
+
+        .card:hover h2 {
+            font-size: 22px;
+        }
+
+        .card button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #008080;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #005959;
+        }
+
+        .card img {
+            width: 210px;
+            height: 249px;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border-radius: 10px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .nav-button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .nav-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <section class="card-body">
+        <div class="slideshow-container ">
+            <div class="container">
+                <div class="card">
+                    <img src="./pdt01.png" alt="Pipes & Fittings">
+                    <h2>PIPES & FITTINGS</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Paints & Finishes">
+                    <h2>PAINTS & FINISHES</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Electrical Supplies">
+                    <h2>ELECTRICAL SUPPLIES</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Hardware Tools">
+                    <h2>HARDWARE TOOLS</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Sanitary Ware">
+                    <h2>SANITARY WARE</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Gardening Tools">
+                    <h2>GARDENING TOOLS</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Lighting Solutions">
+                    <h2>LIGHTING SOLUTIONS</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Building Materials">
+                    <h2>BUILDING MATERIALS</h2>
+                    <button>Shop now</button>
+                </div>
+                <div class="card">
+                    <img src="./pdt01.png" alt="Adhesives & Sealants">
+                    <h2>ADHESIVES & SEALANTS</h2>
+                    <button>Shop now</button>
+                </div>
+            </div>
+            <div class="navigation">
+                <button class="nav-button" id="prev">&#8249;</button>
+                <button class="nav-button" id="next">&#8250;</button>
+            </div>
+        </div>
+    </section>
+   
+
+    <script>
+        const container = document.querySelector('.container');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+
+        let currentIndex = 0;
+        const cardWidth = 320; // 300px card + 20px gap
+        const totalCards = 9;
+        const visibleCards = 4; // Show 4 cards at a time
+        const maxIndex = totalCards - visibleCards;
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            container.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = maxIndex;
+            }
+            container.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        });
+
+        // Automatic sliding
+        let autoSlide = setInterval(() => {
+            if (currentIndex < maxIndex) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            container.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }, 3000); // Slide every 3 seconds
+
+        // Stop sliding on hover
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => clearInterval(autoSlide));
+            card.addEventListener('mouseleave', () => {
+                autoSlide = setInterval(() => {
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                    } else {
+                        currentIndex = 0;
+                    }
+                    container.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                }, 3000);
+            });
+        });
+    </script>
+</body>
+</html>
