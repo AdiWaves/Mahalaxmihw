@@ -1964,7 +1964,7 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
   .c-container {
     display: flex;
   gap: 20px;
-  width: calc(80px * 9 + 20px * 8);
+  width: calc(40px * 9 + 20px * 8);
   overflow: hidden;
   }
 
