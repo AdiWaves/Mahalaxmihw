@@ -1969,8 +1969,8 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
   }
 
   .card {
-    width: calc(50% - 15px); /* Two cards per row */
-    max-width: none; /* Remove max-width restriction */
+    width: calc(100vw - 40px); /* Two cards per row */
+   padding: 15px; /* Remove max-width restriction */
   }
 
   .card img {
