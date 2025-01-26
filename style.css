@@ -1962,10 +1962,10 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
   }
 
   .c-container {
-    flex-wrap: wrap; /* Change from nowrap to wrap */
-    overflow-x: hidden; /* Allow vertical overflow */
-    gap: 15px; /* Adjust spacing between wrapped cards */
-    width: calc(300px * 4 + 20px * 3); /* Limit to 4 cards width */
+    display: flex;
+  gap: 20px;
+  width: calc(300px * 9 + 20px * 8);
+  overflow: hidden;
   }
 
   .card {
