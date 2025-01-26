@@ -1962,12 +1962,14 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
   }
 
   .c-container {
-    gap: 10px;
+    flex-wrap: wrap; /* Change from nowrap to wrap */
+    overflow-x: visible; /* Allow vertical overflow */
+    gap: 15px; /* Adjust spacing between wrapped cards */
   }
 
   .card {
-    width: calc(100vw - 40px);
-    padding: 15px;
+    width: calc(50% - 15px); /* Two cards per row */
+    max-width: none; /* Remove max-width restriction */
   }
 
   .card img {
@@ -1991,8 +1993,7 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
 
 /* Desktop Enhancements */
 @media screen and (min-width: 1280px) {
-  .slideshow-container {
-  }
+  
 
   .card {
     width: 350px;
