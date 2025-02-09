@@ -1953,99 +1953,41 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
 
 /* Mobile Responsive Design */
 @media screen and (max-width: 600px) {
+  .card-body {
+    padding: 10px;
+  }
+
+  .slideshow-container {
+    padding: 10px;
+  }
+
   .c-container {
-    display: flex;
-    gap: 20px;
-    transform: translateX(0);
-    transition: transform 0.5s ease;
-    width: calc(300px * 9 + 1px * 8);
+    gap: 10px;
   }
-  
+
   .card {
-    width: 300px;
-    height: 400px;
-    padding: 20px;
-    padding-left: 20px;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
+    width: calc(100vw - 40px);
+    padding: 15px;
   }
-  
-  .card:hover {
-    background-color: #e0e0e0;
-    transform: scale(1.0) translateY(-20px);
-    z-index: 10;
-    border-radius: 20px;
-  }
-  
-  .card h2 {
-    margin: 0 0 15px;
-    font-size: 20px;
-    transition: font-size 0.3s ease;
-  }
-  
-  .card:hover h2 {
-    font-size: 22px;
-  }
-  
-  .card button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: #008080;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .card button:hover {
-    background-color: #005959;
-  }
-  
+
   .card img {
-    width: 210px;
-    height: 249px;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border-radius: 10px;
-  }
-  
-  .navigation {
-    position: absolute;
-    top: 50%;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+    height: 200px;
   }
-  
-  .nav-button {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
+
+  .card h2 {
     font-size: 18px;
-    border-radius: 5px;
   }
-  
-  #c-next {
-    margin-right: 20px;
+
+  .card button {
+    font-size: 14px;
+    padding: 8px 15px;
   }
-  
-  .nav-button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
+
   .span {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 200px;
+    font-size: 100px;
   }
+}
 
 /* Desktop Enhancements */
 @media screen and (min-width: 1280px) {
@@ -2059,5 +2001,4 @@ body[data-route-option=prev-section] .c-header-home_controls, body[data-route-op
     width: 250px;
     height: 300px;
   }
-}
 }
